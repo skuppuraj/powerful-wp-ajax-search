@@ -1,5 +1,5 @@
 <template>
-  <div id="powerful-wp-ajax-search">
+  <div>
     <Search></Search>
   </div>
 </template>

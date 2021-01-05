@@ -16,7 +16,7 @@ module.exports = {
       : `http://localhost:${devPort}/`,
   configureWebpack: {
     output: {
-      filename: `app-${process.env.VUE_APP_VERSION}.js`,
+      filename: `js/app-${process.env.VUE_APP_VERSION}.js`,
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json',
     },
