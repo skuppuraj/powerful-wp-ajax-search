@@ -1,0 +1,17 @@
+{
+    "name": "pwas/powerful-wp-ajax-search",
+    "description": "Replacement of default WordPress search",
+    "authors": [
+        {
+            "name": "rajkuppu",
+            "email": "kuppuraj@live.in"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PWAS\\": "includes/"
+        }
+    },
+    "require": {},
+    "prefer-stable": true
+}
