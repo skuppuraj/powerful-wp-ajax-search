@@ -25,9 +25,6 @@ class Main{
 
 		$front = trailingslashit( PWAS_PLUGIN_URL ) . 'dist';
 		$version = PWAS_VERSION;
-
-		file_put_contents(dirname(__FILE__)."/__debugger1.php", var_export("{$front}/js/app-{$version}{$min}.js",1)."\n<br><br>\n",FILE_APPEND );
-		
 		wp_enqueue_script( 'pwas_app_js', "{$front}/js/app-{$version}{$min}.js" );
 	}
 }
