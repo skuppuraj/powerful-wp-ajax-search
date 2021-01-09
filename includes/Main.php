@@ -29,6 +29,17 @@ class Main{
 		wp_enqueue_script( 'pwas_js', "{$front}/js/pwas-{$version}{$min}.js", array(), PWAS_VERSION, true );
 
 		wp_enqueue_style( 'pwas_css', "{$front}/css/pwas-{$version}{$min}.css", array(), PWAS_VERSION );
+
+		$script = '(function ($) {
+				    "use strict";
+				     $("#sb-search").on("click",function(){
+				    	$(".pwas-search-component").show();
+					 })
+
+				})(jQuery);';
+		
+		
+		wp_add_inline_script('pwas_js', $script, 'after');
 	}
 
 	public function init_pwas_element(){
