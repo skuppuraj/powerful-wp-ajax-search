@@ -13,9 +13,26 @@
           </button>
         </div>
         <div style="padding: 0 12px;" class="pwas-flex">
-          <input id="paw-search-text" aria-label="Enter search text here and the search results will be automatically updated as you type" autocomplete="off" spellcheck="false" placeholder="search text">
+          <input id="paw-search-text" v-model="search" aria-label="Enter search text here and the search results will be automatically updated as you type" autocomplete="off" spellcheck="false" placeholder="search text">
         </div>
       </div>
+      <section class="pwas-result-section-wrapper">
+          <div class="horizontal layout wrap grid-container">
+               <div class="pwas-result-item" v-for="item in results">
+                  <div id="pwas-card" class="vertical layout  ">
+                      <div id="pwas-image-container">
+                        <a id="pwas-image-panel" :aria-label="item.title" :href="item.link" v-bind:style="styleObject(item.image)" >
+                        </a>
+                      </div>
+                      <div style="position: relative;">
+                        <a id="pwas-name" :href="item.link">
+                          <span>{{item.title}}</span>
+                        </a>
+                      </div>
+                    </div>
+               </div>     
+          </div>
+      </section>
   </div>
 </template>
 
@@ -26,15 +43,18 @@ export default {
   name: 'Search',
   data () {
     return {
-      url:''
+      url:'',
+      search: '',
+      results:[]
     }
   },
   mounted(){
     let request = {
       action: 'search',
-      params:{
-        action: 'search'
-      }
+      aslp:"grill",
+      asid:1,
+      asl_get_as_array:1,
+      options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None&set_inpages=None&categoryset%5B%5D=2&categoryset%5B%5D=3&categoryset%5B%5D=5&categoryset%5B%5D=7&categoryset%5B%5D=8&categoryset%5B%5D=9&categoryset%5B%5D=10"
     }
     this.post(request);
   },
@@ -59,12 +79,17 @@ export default {
           data: form_data
         })
         .then(response => {
-          return console.log(response)
+            this.results = response.data;
         })
         .catch(error => console.log(error));
     },
     getFormData(object) {       
         return serialize(object);
+    },
+    styleObject(img){
+      return {
+        'background-image': "url('"+img+"')"
+      }
     }
   }
 };

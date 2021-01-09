@@ -19,6 +19,10 @@
         flex-direction: row;
     }
 
+    .layout.vertical {
+        flex-direction: column;
+    }
+    
     .layout.center {
         align-items: center;
     }
@@ -82,5 +86,60 @@
 			    }
     		}
     	}
+    }
+
+    .pwas-result-section-wrapper{
+    	max-width: 1066px;
+	    box-sizing: border-box;
+	    margin: 0 auto;
+	    padding: 16px 8px 0;
+
+	    .pwas-result-item{
+	    	display: block;
+	    	width: 262px;
+	    	margin: 16px 0;
+	    	box-sizing: border-box;
+	    }
+
+	    #pwas-card{
+	    	background: white;
+	    	font-size: 13px;
+	    	padding: 0 12px;
+	    	position: relative;
+	    }
+	    #pwas-image-container {
+	        border-radius: 5px;
+	        overflow: hidden;
+	        width: 100%;
+	    }
+
+	    #pwas-image-panel {
+	        height: 128px;
+	        width: 100%;
+	        background-color: #f0f0f0;
+	        background-size: cover;
+	        background-origin: border-box;
+	        background-repeat: no-repeat;
+	        background-position: 50% 50%;
+	        border: none;
+	        text-decoration: none;
+	        color: inherit;
+	        position: relative;
+	        outline: none;
+	        box-sizing: border-box;
+	        margin: 0;
+	        transition: transform 0.3s ease;
+	        display: block;
+	        overflow: hidden;
+	    }
+
+	    #pwas-name{
+	    	text-decoration: none;
+	    	font-size: 14px;
+	    	color: inherit;
+	    	outline: none;
+	    	margin: 8px 0 0;
+	    	display: block;
+	    }
     }
 }
