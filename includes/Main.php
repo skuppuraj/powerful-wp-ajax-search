@@ -1,11 +1,20 @@
 <?php
 
 namespace PWAS;
+use PWAS\Controllers\AjaxController;
+use PWAS\Actions\SearchAction;
 
 class Main{
 
+	private $ajax_manager;
+
 	public function run(){
+		$this->create_objects();
 		add_action( 'plugins_loaded', array( $this, 'add_action_hooks' ), 1 );
+	}
+
+	public function create_objects(){
+		$this->ajax_manager = new AjaxController( $this->get_ajax_actions() );
 	}
 
 	public function add_action_hooks(){
@@ -47,5 +56,12 @@ class Main{
 
 	public function init_pwas_element(){
 		echo "<div id='powerful-wp-ajax-search'></div>";
+	}
+
+	public function get_ajax_actions() {
+		// Setting no_privilege to false because wc_ajax doesn't have a no privilege endpoint.
+		return array(
+			new SearchAction( 'search', false, 'wc_ajax_' ),
+		);
 	}
 }
