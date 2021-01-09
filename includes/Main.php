@@ -9,6 +9,7 @@ class Main{
 	}
 
 	public function add_action_hooks(){
+		add_action( 'wp_footer', array( $this, 'init_pwas_element' ) );
 		add_action( 'wp', array( $this, 'init_hooks' ), 1 );
 	}
 
@@ -25,6 +26,10 @@ class Main{
 
 		$front = trailingslashit( PWAS_PLUGIN_URL ) . 'dist';
 		$version = PWAS_VERSION;
-		wp_enqueue_script( 'pwas_app_js', "{$front}/js/app-{$version}{$min}.js" );
+		wp_enqueue_script( 'pwas_app_js', "{$front}/js/app-{$version}{$min}.js", array(), false, true );
+	}
+
+	public function init_pwas_element(){
+		echo "<div id='powerful-wp-ajax-search'></div>";
 	}
 }
