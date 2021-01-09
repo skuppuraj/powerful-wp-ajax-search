@@ -17,6 +17,7 @@
         </div>
       </div>
       <section class="pwas-result-section-wrapper">
+        <label><!---->Top results<!----></label>
           <div class="horizontal layout wrap grid-container">
                <div class="pwas-result-item" v-for="item in results">
                   <div id="pwas-card" class="vertical layout  ">
