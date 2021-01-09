@@ -35,9 +35,9 @@ class Main{
 
 		$front = trailingslashit( PWAS_PLUGIN_URL ) . 'dist';
 		$version = PWAS_VERSION;
-		wp_enqueue_script( 'pwas_js', "{$front}/js/pwas-{$version}{$min}.js", array(), PWAS_VERSION, true );
+		wp_enqueue_script( 'pwas-js', "{$front}/js/pwas-{$version}{$min}.js", array(), PWAS_VERSION, true );
 
-		wp_enqueue_style( 'pwas_css', "{$front}/css/pwas-{$version}{$min}.css", array(), PWAS_VERSION );
+		wp_enqueue_style( 'pwas-css', "{$front}/css/pwas-{$version}{$min}.css", array(), PWAS_VERSION );
 
 		$script = '(function ($) {
 				    "use strict";
@@ -51,7 +51,12 @@ class Main{
 				})(jQuery);';
 		
 		
-		wp_add_inline_script('pwas_js', $script, 'after');
+		wp_add_inline_script('pwas-js', $script, 'after');
+
+		$variables = array(
+		        'ajaxurl' => admin_url( 'admin-ajax.php' )
+		    );
+		wp_localize_script('pwas-js', "pwas_object", $variables);
 	}
 
 	public function init_pwas_element(){
