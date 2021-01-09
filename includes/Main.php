@@ -35,6 +35,9 @@ class Main{
 				     $("#sb-search").on("click",function(){
 				    	$(".pwas-search-component").show();
 					 })
+					 $("#pwas-close-button").on("click",function(){
+				    	$(".pwas-search-component").hide();
+					 })
 
 				})(jQuery);';
 		
