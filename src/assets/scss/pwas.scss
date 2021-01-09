@@ -35,6 +35,12 @@
         flex-wrap: wrap;
     }
 
+    @media (max-width: 420px){
+	    .grid-container {
+	        justify-content: center;
+	    }
+    }
+
     #pwas-search-bar{
     	#paw-search-text{
 	    	width: 100%;
@@ -100,7 +106,7 @@
 
 	    .pwas-result-item{
 	    	display: block;
-	    	width: 175px;
+	    	width: 159px;
 	    	margin: 16px 0;
 	    	box-sizing: border-box;
 	    }
