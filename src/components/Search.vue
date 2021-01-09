@@ -20,8 +20,45 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'Search'
+  name: 'Search',
+  data () {
+    return {
+      url:''
+    }
+  },
+  mounted(){
+    let request = {
+      action: 'search',
+      params:{
+        action: 'search'
+      }
+    }
+    this.post(request);
+  },
+  methods:{
+    post(request) {
+      this.url = pwas_object.ajaxurl.toString().replace( '%%endpoint%%', request.action );
+      let axiosConfig = {};
+      if (process.env.NODE_ENV == 'development') {
+        axiosConfig = {
+          withCredentials: true,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        };
+      }else{
+        axiosConfig = {
+          withCredentials: true,
+        };
+      }
+      return axios
+        .post(`${this.url}`, request.params, axiosConfig)
+        .then(response => {
+          return console.log(response)
+        })
+        .catch(error => console.log(error));
+    }
+  }
 };
 </script>
 
