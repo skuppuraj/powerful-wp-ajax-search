@@ -21,6 +21,7 @@
 
 <script>
 import axios from 'axios';
+import { serialize } from 'object-to-formdata';
 export default {
   name: 'Search',
   data () {
@@ -39,6 +40,7 @@ export default {
   },
   methods:{
     post(request) {
+      let form_data = this.getFormData(request);
       this.url = pwas_object.ajaxurl.toString().replace( '%%endpoint%%', request.action );
       let axiosConfig = {};
       if (process.env.NODE_ENV == 'development') {
@@ -51,12 +53,18 @@ export default {
           withCredentials: true,
         };
       }
-      return axios
-        .post(`${this.url}`, request.params, axiosConfig)
+      return axios({
+        method: 'post',
+          url: `${this.url}`,
+          data: form_data
+        })
         .then(response => {
           return console.log(response)
         })
         .catch(error => console.log(error));
+    },
+    getFormData(object) {       
+        return serialize(object);
     }
   }
 };
