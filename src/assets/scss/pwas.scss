@@ -22,13 +22,17 @@
     .layout.vertical {
         flex-direction: column;
     }
-    
+
     .layout.center {
         align-items: center;
     }
 
     .pwas-flex{
     	flex: 1 1 1e-09px;
+    }
+
+    .layout.wrap {
+        flex-wrap: wrap;
     }
 
     #pwas-search-bar{
@@ -96,7 +100,7 @@
 
 	    .pwas-result-item{
 	    	display: block;
-	    	width: 262px;
+	    	width: 175px;
 	    	margin: 16px 0;
 	    	box-sizing: border-box;
 	    }
