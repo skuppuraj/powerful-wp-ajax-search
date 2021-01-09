@@ -16,7 +16,7 @@ module.exports = {
       : `http://localhost:${devPort}/`,
   configureWebpack: {
     output: {
-      filename: `js/app-${process.env.VUE_APP_VERSION}.js`,
+      filename: `js/pwas-${process.env.VUE_APP_VERSION}.js`,
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json',
     },
@@ -27,7 +27,7 @@ module.exports = {
   filenameHashing: true,
   css: {
     extract: {
-      filename: `app-${process.env.VUE_APP_VERSION}.css`,
+      filename: `css/pwas-${process.env.VUE_APP_VERSION}.css`,
     },
   },
 };

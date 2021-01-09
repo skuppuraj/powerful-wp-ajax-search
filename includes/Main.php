@@ -26,7 +26,7 @@ class Main{
 
 		$front = trailingslashit( PWAS_PLUGIN_URL ) . 'dist';
 		$version = PWAS_VERSION;
-		wp_enqueue_script( 'pwas_app_js', "{$front}/js/app-{$version}{$min}.js", array(), false, true );
+		wp_enqueue_script( 'pwas_app_js', "{$front}/js/pwas-{$version}{$min}.js", array(), false, true );
 	}
 
 	public function init_pwas_element(){
