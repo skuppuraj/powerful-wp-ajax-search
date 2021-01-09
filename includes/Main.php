@@ -10,11 +10,16 @@ class Main{
 
 	public function run(){
 		$this->create_objects();
+		$this->configure_objects();
 		add_action( 'plugins_loaded', array( $this, 'add_action_hooks' ), 1 );
 	}
 
 	public function create_objects(){
 		$this->ajax_manager = new AjaxController( $this->get_ajax_actions() );
+	}
+
+	private function configure_objects() {
+		$this->ajax_manager->load_all();
 	}
 
 	public function add_action_hooks(){
@@ -64,9 +69,8 @@ class Main{
 	}
 
 	public function get_ajax_actions() {
-		// Setting no_privilege to false because wc_ajax doesn't have a no privilege endpoint.
 		return array(
-			new SearchAction( 'search', false, 'wc_ajax_' ),
+			new SearchAction( 'search', true, 'wp_ajax_' ),
 		);
 	}
 }
