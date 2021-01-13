@@ -16,6 +16,11 @@
           <input id="paw-search-text" v-model="search" aria-label="Enter search text here and the search results will be automatically updated as you type" autocomplete="off" spellcheck="false" placeholder="search text">
         </div>
       </div>
+      <div v-if="isSearching" class="horizontal layout center" style="padding: 0 64px 9px; margin-top: -12px;">
+        <div class="flex horizontal layout center offlineLabel">
+          <span>Searching...</span>
+        </div>
+      </div>
       <section class="pwas-result-section-wrapper">
         <label><!---->Top results<!----></label>
           <div class="horizontal layout wrap grid-container">
@@ -47,7 +52,8 @@ export default {
     return {
       url:'',
       search: '',
-      results:[]
+      results:[],
+      isSearching: false
     }
   },
   created() {
@@ -71,6 +77,7 @@ export default {
   methods:{
     post(request) {
       let form_data = this.getFormData(request);
+      this.isSearching = true;
       this.url = pwas_object.ajaxurl.toString().replace( '%%endpoint%%', request.action );
       let axiosConfig = {};
       if (process.env.NODE_ENV == 'development') {
@@ -90,6 +97,7 @@ export default {
         })
         .then(response => {
             this.results = response.data;
+            this.isSearching = false;
         })
         .catch(error => console.log(error));
     },
