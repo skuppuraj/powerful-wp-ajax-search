@@ -56,7 +56,7 @@ export default {
   mounted(){
     let request = {
       action: 'search',
-      aslp:"grill",
+      aslp:"",
       asid:1,
       asl_get_as_array:1,
       options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None"
