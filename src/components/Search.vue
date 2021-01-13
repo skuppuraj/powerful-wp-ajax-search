@@ -59,7 +59,7 @@ export default {
       aslp:"grill",
       asid:1,
       asl_get_as_array:1,
-      options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None&categoryset%5B%5D=2&categoryset%5B%5D=3&categoryset%5B%5D=5&categoryset%5B%5D=7&categoryset%5B%5D=8&categoryset%5B%5D=9&categoryset%5B%5D=10"
+      options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None"
     }
     this.post(request);
   },
@@ -107,7 +107,7 @@ export default {
           aslp:this.search,
           asid:1,
           asl_get_as_array:1,
-          options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None&categoryset%5B%5D=2&categoryset%5B%5D=3&categoryset%5B%5D=5&categoryset%5B%5D=7&categoryset%5B%5D=8&categoryset%5B%5D=9&categoryset%5B%5D=10"
+          options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None"
         }
         this.post(request);
     }
