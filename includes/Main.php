@@ -48,9 +48,11 @@ class Main{
 				    "use strict";
 				     $("#sb-search").on("click",function(){
 				    	$(".pwas-search-component").show();
+				    	$("body").css({"overflow":"hidden"});
 					 })
 					 $("#pwas-close-button").on("click",function(){
 				    	$(".pwas-search-component").hide();
+				    	$("body").css({"overflow":""});
 					 })
 
 				})(jQuery);';
