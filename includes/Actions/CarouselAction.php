@@ -14,7 +14,7 @@ class CarouselAction extends ActionCore {
 
 		global $wpdb;
 
-		$post_content = $wpdb->get_results("select ID,post_title from $wpdb->posts where post_status='publish' AND post_type = 'post'", ARRAY_A);  
+		$post_content = $wpdb->get_results("select ID,post_title from $wpdb->posts where post_status='publish' AND post_type = 'post' ORDER BY ID DESC", ARRAY_A);  
 
 		if ( empty( $post_content ) ) {
 			return array();
