@@ -15,28 +15,18 @@
 <script>
 import axios from 'axios';
 import _ from 'lodash';
-import { Carousel, Slide } from 'vue-carousel';
 import { serialize } from 'object-to-formdata';
 export default {
 name: 'Search',
 data () {
   return {
-    url:'',
     results:[],
     isLoading: false
   }
 },
-components: {
-    Carousel,
-    Slide
- },
  mounted(){
    let request = {
-     action: 'carousel',
-     aslp:"",
-     asid:1,
-     asl_get_as_array:1,
-     options:"qtranslate_lang=0&set_intitle=None&set_incontent=None&set_inexcerpt=None&set_inposts=None"
+     action: 'carousel'
    }
    this.post(request);
  },
