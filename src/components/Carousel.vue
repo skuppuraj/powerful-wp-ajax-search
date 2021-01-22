@@ -1,6 +1,21 @@
 <template>
 	<div class="pwas-carousel-component">
-		
+		  <div id="bar">
+          <div id="container">
+            <div id="hs" class="virtual-list">
+              <div style="margin-left: 5px; width: 155px; height: 60px; position: absolute; transform: translate(0px, 0px);">
+                <div v-for="item in results" class="film-strip-item">
+                  <a :href="item.url">
+                    <div id="pwa-img-card" class="horizontal layout center ">
+                      <div id="imageCell" v-bind:style="styleObject(item.img)"></div>
+                      <div>{{item.post_title}}</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
 	</div>
 </template>
 
@@ -14,13 +29,13 @@ name: 'Search',
 data () {
   return {
     url:'',
-    search: '',
     results:[],
-    isSearching: false
+    isLoading: false
   }
 },
 components: {
-    Carousel
+    Carousel,
+    Slide
  },
  mounted(){
    let request = {
@@ -35,7 +50,7 @@ components: {
  methods:{
    post(request) {
      let form_data = this.getFormData(request);
-     this.isSearching = true;
+     this.isLoading = true;
      this.url = pwas_object.ajaxurl.toString().replace( '%%endpoint%%', request.action );
      let axiosConfig = {};
      if (process.env.NODE_ENV == 'development') {
@@ -55,14 +70,23 @@ components: {
        })
        .then(response => {
            this.results = response.data;
-           this.isSearching = false;
+           this.isLoading = false;
        })
        .catch(error => console.log(error));
    },
    getFormData(object) {       
        return serialize(object);
    },
+   styleObject(img){
+     return {
+       'background-image': "url('"+img+"')"
+     }
+   },
   }
 
 };
 </script>
+
+<style lang="scss">
+  @import "../assets/scss/pwas-carousel.scss";
+</style>
