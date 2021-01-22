@@ -21,7 +21,7 @@ class CarouselAction extends ActionCore {
 		}
 
 		foreach ( $post_content as $key => $post ) {
-			$image = get_the_post_thumbnail( $post['ID'], array( 125, 125), array( 'id' => 'imageCell' ) );
+			$image = get_the_post_thumbnail( $post['ID'], array( 125, 125), array( 'id' => 'imageCell', 'loading' =>'lazy' ) );
 			$URL = get_permalink( $post['ID']);
 			$post_content[$key]['img'] = $image;
 			$post_content[$key]['url'] = $URL;
