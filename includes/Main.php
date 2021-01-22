@@ -3,6 +3,7 @@
 namespace PWAS;
 use PWAS\Controllers\AjaxController;
 use PWAS\Actions\SearchAction;
+use PWAS\Actions\CarouselAction;
 
 class Main{
 
@@ -73,6 +74,7 @@ class Main{
 	public function get_ajax_actions() {
 		return array(
 			new SearchAction( 'search', true, 'wp_ajax_' ),
+			new CarouselAction( 'carousel', true, 'wp_ajax_' ),
 		);
 	}
 }
