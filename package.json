@@ -12,6 +12,7 @@
     "lodash": "^4.17.20",
     "object-to-formdata": "^4.1.0",
     "vue": "^2.6.11",
+    "vue-carousel": "^0.18.0",
     "vue-fuse": "^2.2.1"
   },
   "devDependencies": {
