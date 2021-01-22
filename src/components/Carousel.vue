@@ -1,6 +1,6 @@
 <template>
 	<div class="pwas-carousel-component">
-		  <div id="bar">
+		  <!-- <div id="bar">
           <div id="container">
             <div id="hs" class="virtual-list">
               <div style="margin-left: 5px; width: 155px; height: 60px; position: absolute; transform: translate(0px, 0px);">
@@ -15,6 +15,15 @@
               </div>
             </div>
           </div>
+      </div> -->
+      <div class="pwas-carousel-wrapper">
+        <div v-for="item in results" class="film-strip-item">
+          <a :href="item.url">
+            <div class="card-wrapper" v-html="item.html">
+             
+            </div>
+          </a>
+        </div>
       </div>
 	</div>
 </template>
