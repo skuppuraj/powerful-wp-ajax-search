@@ -136,4 +136,9 @@
 		top: 0px;
 		display:block;
 	}
+
+	#overlay{
+		display: flex !important;
+		transition: transform 0.5s ease;
+	}
 }

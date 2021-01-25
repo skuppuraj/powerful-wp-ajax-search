@@ -1,6 +1,6 @@
 <template>
-	<div class="pwas-carousel-component">
-      <div class="pwas-carousel-wrapper">
+	<div class="pwas-carousel-component" id="pwas-carousel">
+      <div class="pwas-carousel-wrapper" id="pwas-carousel-wrapper-id">
         <div v-for="item in results" class="film-strip-item">
           <a :href="item.url">
             <div class="card-wrapper" v-html="item.html">
@@ -11,7 +11,7 @@
       </div>
       <div id="overlay" class="horizontal layout center">
         <div class="soso-icon-button">
-          <button aria-label="Scroll left" class="soso-button">
+          <button aria-label="Scroll left" class="soso-button" @click="scrollLeft">
             <div class="soso-icon">
               <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false">
                 <g>
@@ -23,7 +23,7 @@
         </div>
         <span class="flex"></span>
         <div class="soso-icon-button">
-          <button aria-label="Scroll right" class="soso-button">
+          <button aria-label="Scroll right" class="soso-button" @click="scrollRight">
             <div class="soso-icon">
               <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false">
                 <g>
@@ -90,6 +90,18 @@ data () {
        'background-image': "url('"+img+"')"
      }
    },
+   scrollLeft(){
+      let width = this.getElementOffset();
+      document.getElementById("pwas-carousel-wrapper-id").scrollLeft -= width;
+   },
+   scrollRight(){
+      let width = this.getElementOffset();
+      document.getElementById("pwas-carousel-wrapper-id").scrollLeft += width;
+   },
+   getElementOffset(){
+      let container = document.getElementById('pwas-carousel');
+      return Math.floor(container.offsetWidth-155);
+   }
   }
 
 };
